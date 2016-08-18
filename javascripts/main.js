@@ -2,7 +2,18 @@ var chess = document.getElementById("chess");
 var ctx = chess.getContext("2d");
 
 var is = true;
+var m = true;
 var over = false; //是否结束
+
+var started = false;
+
+function mode(){
+	if(started){
+		alert("游戏已经开始，无法更改");
+	}
+	m = !m;
+	document.getElementById("mode").value = m?"人机模式":"双人模式";
+}
 
 //棋盘数组
 var board = [];
@@ -77,26 +88,52 @@ for(var i = 0; i < 15; i++){  //画棋盘，15*15
 
 	
 chess.onclick = function(e){
+	started = true;
 	if(over)
 		return;
 	var i = Math.floor(e.offsetX / 30);//取棋盘索引
 	var j = Math.floor(e.offsetY / 30);
 	if(board[i][j] == 0){
-		oneStep(i, j, true);
-		board[i][j] = 1;	
+		oneStep(i, j, is);
+		board[i][j] = is?1:2;	
 		for(var k = 0; k < count; k++){
 			if(win[i][j][k]){
-				AWin[k]++;
-				BWin[k] = 6;
-				if(AWin[k] == 5){
-					window.alert("A方赢了");
-					over = true;
+				if(!m){
+					if(is){
+						AWin[k]++;
+						BWin[k] = 6;
+						if(AWin[k] == 5){
+							over = true;
+							if(confirm("A方赢了,要重来吗？")){
+								location.reload(true);
+							}
+						}	
+					}else{
+						BWin[k]++;
+						AWin[k] = 6;
+						if(BWin[k] == 5){
+							over = true;
+							if(confirm("B方赢了,要重来吗？")){
+								location.reload(true);
+							}
+						}
+					}
+				}else{
+					AWin[k]++;
+					BWin[k] = 6;
+					if(AWin[k] == 5){
+						over = true;
+						if(confirm("A方赢了,要重来吗？")){
+							location.reload(true);
+						}
+					}
 				}
 			}
 		}
 		if(!over){
 			is = !is;
-			AI();
+			if(m)AI();
+			
 		}
 	}
 };
@@ -189,8 +226,10 @@ function AI(){  //计算机AI
 				BWin[k]++;
 				AWin[k] = 6;
 				if(BWin[k] == 5){
-					window.alert("B方赢了");
 					over = true;
+					if(confirm("B方赢了,要重来吗？")){
+						location.reload(true);
+					}
 				}
 			}
 		}
