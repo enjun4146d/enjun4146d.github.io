@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="enjun4146d.gitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Gobang</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+       <header class="inner">
+         <a id="forkme_banner" href="https://github.com/enjun4146d">View on GitHub</a>	
+         <h1 id="project_title">GObang</h1>
+       </header>
+    </div>
+
+	<div id="main_content_wrap" class="outer">
+	  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/css.css">
+	  <canvas id="chess" width="450dp" height="450dp"></canvas>
+	  <script type="text/javascript" src="javascripts/main.js"></script>
+	  <input id="mode" class="button blue" type="button" value="人机模式" onclick="mode()"/> 
+	</div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
