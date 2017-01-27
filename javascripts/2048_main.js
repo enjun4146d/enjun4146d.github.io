@@ -293,9 +293,9 @@ borad.onmouseup = function(e){
 }
 
 borad.addEventListener('touchstart', function(e){
-	if (e.targetTouches.length == 1) {
+	if (e.touches.length == 1) {
 		
-	var touch = e.targetTouches[0];
+	var touch = e.touches[0];
 	var x = touch.pageX;  
   var y = touch.pageY;
 	var canvas = e.target;  
@@ -315,9 +315,9 @@ borad.addEventListener('touchemove', function(e){
 }, false);
 
 borad.addEventListener('touchend', function(e){
-	if (e.targetTouches.length == 1) {
+	if (e.changedTouches.length == 1) {
 		
-	var touch = e.targetTouches[0];
+	var touch = e.changedTouches[0];
 	var x = touch.pageX;  
   var y = touch.pageY;
 	var canvas = e.target;  
