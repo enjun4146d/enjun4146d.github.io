@@ -292,5 +292,36 @@ borad.onmouseup = function(e){
 	}
 }
 
-borad.addEventListener("touchstart", borad.onmousedown, false);
-borad.addEventListener("touchend", borad.onmouseup, false);
+borad.addEventListener('touchestart', function(e){
+	var touch = e.targetTouches[0];
+	var x = touch.pageX;  
+  var y = touch.pageY;
+	var canvas = e.target;  
+  var loc = getPointOnCanvas(canvas, x, y);
+	sx = loc.x;
+	sy = loc.y;
+	console.log("mouse down at point( x:" + sx + ", y:" + sy + ")");
+},false
+);
+
+borad.addEventListener('touchemove', function(e){e.preventDefault();console.log("a")}, false);
+
+borad.addEventListener('touchend', function(e){
+	var touch = e.targetTouches[0];
+	var x = touch.pageX;  
+  var y = touch.pageY;
+	var canvas = e.target;  
+  var loc = getPointOnCanvas(canvas, x, y);
+	var ex = loc.x;
+	var ey = loc.y;
+	console.log("mouse down at point( x:" + ex + ", y:" + ey + ")");
+	if(Math.abs(sx-ex) < Math.abs(sy-ey)){
+		if(sy < ey)move("down");
+		else if(sy > ey)move("up");
+	}
+	else if(Math.abs(sx-ex) > Math.abs(sy-ey)){
+		if(sx < ex)move("right");
+		else if(sx > ex)move("left");
+	}
+},false
+);
