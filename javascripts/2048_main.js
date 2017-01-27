@@ -84,7 +84,7 @@ function draw(){
 		ctx.textBaseline = "middle";
 		ctx.fillText("GAME OVER!", 225, 225);
 	}
-}
+} 
 
 function getPointOnCanvas(canvas, x, y) {  
     var bbox = canvas.getBoundingClientRect();  
