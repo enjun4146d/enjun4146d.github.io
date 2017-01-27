@@ -291,3 +291,6 @@ borad.onmouseup = function(e){
 		else if(sx > ex)move("left");
 	}
 }
+
+borad.addEventListener("touchstart", borad.onmousedown, false);
+borad.addEventListener("touchend", borad.onmouseup, false);
