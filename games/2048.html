@@ -4,45 +4,39 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Enjun4146d.GitHub.io : ">
-    <title>Enjun4146d.GitHub.io</title>
-	<style type="text/css">
-		#a{
-			width:100px;
-			height:100px;
-			background:#000;
-		}
-	</style>
+    <meta name="description" content="enjun4146d.gitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <title>2048</title>
   </head>
+
   <body>
-	<div id="a"></div>
-	<script type="text/javascript">
-		var x = 0, y = 0;
-		var xx = 0, yy = 0;
-		var a = document.getElementById("a");
-		a.onmousedown = function(e){
-			x=e.offsetX;
-			y=e.offsetY;
-		}
-		a.onmouseup = function(e){
-			xx=e.offsetX;
-			yy=e.offsetY;
-			
-			if(xx < x && Math.max(x,xx) - Math.min(x,xx) > Math.max(y,yy) - Math.min(y,yy)){
-				console.log("left");
-			}else if(xx > x && Math.max(x,xx) - Math.min(x,xx) > Math.max(y,yy) - Math.min(y,yy)){
-				console.log("right");
-			}else if(yy < y && Math.max(x,xx) - Math.min(x,xx) < Math.max(y,yy) - Math.min(y,yy)){
-				console.log("up");
-			}else if(yy > y && Math.max(x,xx) - Math.min(x,xx) < Math.max(y,yy) - Math.min(y,yy)){
-				console.log("down");
-			}
-			
-			x = 0;
-			y = 0;
-			xx = 0;
-			yy = 0;
-		}
-	</script>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+       <header class="inner">
+         <h1 id="project_title" class="center">2048</h1>
+				 <h1 id="scorebar" class="center">score:0</h1>
+       </header>
+    </div>
+		
+
+		<div id="main_content_wrap" class="outer center">
+			<link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/2048_css.css">
+				<canvas id="borad" width="450" height="450"></canvas>
+				<script type="text/javascript" src="../javascripts/2048_main.js"></script>
+			</div>
+		</div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
